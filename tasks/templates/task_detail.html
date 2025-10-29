@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ task.title }}</title>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; color: #111; max-width: 800px; }
+        a { color: #0b5fff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .crumbs { margin-bottom: 1rem; }
+        .badge { font-size: 0.8rem; padding: 0.25rem 0.5rem; border-radius: 999px; border: 1px solid #e5e7eb; }
+        .done { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+        .todo { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+        .meta { color: #6b7280; margin: 0.25rem 0 1rem; }
+        .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; }
+        h1 { margin: 0 0 0.25rem; }
+        .desc { white-space: pre-wrap; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="crumbs"><a href="{% url 'task_list' %}">← Назад к списку</a></div>
+
+    <div class="card">
+        <h1>{{ task.title }}</h1>
+        <div class="meta">
+            Статус:
+            <span class="badge {% if task.completed %}done{% else %}todo{% endif %}">
+                {% if task.completed %}Выполнено{% else %}В работе{% endif %}
+            </span>
+            · Создано: {{ task.created_at|date:"Y-m-d H:i" }}
+        </div>
+
+        {% if task.description %}
+            <div class="desc">{{ task.description }}</div>
+        {% else %}
+            <div class="desc" style="color:#6b7280;font-style:italic;">Описание отсутствует.</div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
