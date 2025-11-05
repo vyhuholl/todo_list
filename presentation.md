@@ -341,12 +341,13 @@ urlpatterns = [
 
 tasks/urls.py
 ```python
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('tasks.urls')),
+    path('', views.task_list, name='task_list'),
+    path('<int:pk>/', views.task_detail, name='task_detail'),
 ]
 ```
 [📎 Документация](https://docs.djangoproject.com/en/5.2/topics/http/urls)
@@ -377,7 +378,7 @@ urlpatterns = [
 <div class="columns">
 <div>
 
-![w:300 h:300](./images/qr_debugskiils.png)
+![w:300 h:300](./images/qr_debugskills.png)
 [@DebugSkills](https://t.me/DebugSkills)
 
 </div>
