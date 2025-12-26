@@ -58,49 +58,24 @@ class: invert
 
 ---
 
-## 🐍 Установка Python
-<div class="columns">
-<div>
+## 🐍 Установка 📎 [uv](https://docs.astral.sh/uv) и Python
+macOS/Linux
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# или
+wget -qO- https://astral.sh/uv/install.sh | sh
+```
+Windows
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-![w:300 h:300](./images/qr_python.png)
-[python.org/downloads](https://www.python.org/downloads)
-
-</div>
-<div>
-
-![w:300 h:300](./images/qr_uv.png)
-[docs.astral.sh/uv/getting-started/installation](https://docs.astral.sh/uv/getting-started/installation)
-
-</div>
-</div>
-
-<style>
-.columns {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-}
-.columns > div {
-  text-align: center;
-  font-size: 30px;
-}
-</style>
-
+```bash
+uv python install
+```
 ---
 
 ### Настройка виртуального окружения
-```bash
-python -m venv venv
-source venv/bin/activate # Для Linux/Mac
-# или
-venv\Scripts\activate # Для Windows
-pip install django
-django-admin startproject todo_list .
-python manage.py startapp tasks
-```
-
-### Либо же (с 📎 [uv](https://docs.astral.sh/uv))
 ```bash
 uv venv
 uv pip install django
@@ -112,8 +87,6 @@ uv run manage.py startapp tasks
 
 ## 🚀 Запуск проекта
 ```bash
-python manage.py runserver
-# Либо же
 uv run manage.py runserver
 ```
 
@@ -212,15 +185,11 @@ class Task(models.Model):
 # Миграции
 Создаём файл миграции
 ```bash
-python manage.py makemigrations
-# Либо же
 uv run manage.py makemigrations
 ```
 
 Применяем миграцию к БД
 ```bash
-python manage.py migrate
-# Либо же
 uv run manage.py migrate
 ```
 
@@ -229,8 +198,6 @@ uv run manage.py migrate
 ### Админ-панель
 Создадим суперпользователя
 ```bash
-python manage.py createsuperuser
-# Либо же
 uv run manage.py createsuperuser
 ```
 Зарегистрируем модель
