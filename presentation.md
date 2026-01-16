@@ -160,8 +160,8 @@ INSTALLED_APPS = [
 
 ---
 
-# Модели Django
-📎 [Документация по моделям](https://docs.djangoproject.com/en/stable/topics/db/models/)
+### Модели Django (📎 [документация](https://docs.djangoproject.com/en/stable/topics/db/models/))
+
 ```python
 class Task(models.Model):
     title = models.CharField("Название", max_length=255, unique=True)
@@ -347,12 +347,6 @@ urlpatterns = [
 
 ![w:300 h:300](./images/qr_debugskills.png)
 [@DebugSkills](https://t.me/DebugSkills)
-
-</div>
-<div>
-
-![w:300 h:300](./images/qr_it_chuyana.png)
-[@IT_Chuyana](https://t.me/IT_Chuyana)
 
 </div>
 
